@@ -14,11 +14,11 @@ h1 {
 }
 h1 {
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 120%;
   margin: 0.5em 0;
 }
-h2 {
+/*h2 {
   font-size: 1.75em;
   font-weight: bold;
   line-height: 120%;
@@ -47,7 +47,7 @@ h6 {
   font-weight: bold;
   line-height: 120%;
   margin: 1em 0;
-}
+}*/
 html, body {
   height: 100%;
 }
@@ -61,6 +61,7 @@ body {
   font-size: $font-size-base;
   font-weight: 400;
   line-height: normal;
+  font-family: $font-family-base;
 }
 button, a, input, textarea {
   outline: none;

@@ -11,12 +11,12 @@ class Modal {
     }));
   }
 
-  openModal() {
-    gsap.to(".js-fullModal", {duration: .3, opacity: 1, scale: 1});
-    document.body.classList.add('_fixed');
-    let ad = new Ad();
-    ad.init();
-  }
+  //openModal() {
+  //  gsap.to(".js-fullModal", {duration: .3, opacity: 1, scale: 1});
+  //  document.body.classList.add('_fixed');
+  //  let ad = new Ad();
+  //  ad.init();
+  //}
 
   openSmallModal() {
     document.body.classList.add('_fixed');
@@ -27,9 +27,8 @@ class Modal {
 
   closeModal(elem) {
     gsap.to(elem, {duration: .3, opacity: 0, scale: .3});
-    if (elem == '.js-fullModal') {
-      document.body.classList.remove('_fixed')
-    } else gsap.to(".js-watch", {duration: .3, autoAlpha: 1});
+    document.body.classList.remove('_fixed');
+    gsap.to(".js-watch", {duration: .3, autoAlpha: 1})
   }
 
 }
