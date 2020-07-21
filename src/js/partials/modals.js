@@ -11,6 +11,7 @@ class Modal {
     document.body.classList.add('_fixed');
     gsap.to(".js-watch", {duration: .3, autoAlpha: 0});
     gsap.to(".js-watchModal", {duration: .3, opacity: 1, scale: 1});
+    gsap.to(".js-watchModal", {duration: .1, zIndex: 100});
   }
 
   closeModal(elem) {
