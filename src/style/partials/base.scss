@@ -99,7 +99,6 @@ ul, ol {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to bottom, rgba(239, 1, 124, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
   opacity: 0;
   /*z-index: 100;*/
   z-index: 0;
@@ -120,16 +119,11 @@ ul, ol {
       background-color: rgba(0, 0, 0, .5);
     }
   }
-  &__footballer {
-    width: 60%;
-    position: relative;
-    z-index: 200;
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  &__inner {
+    padding: 20px 30px;
+    width: 50%;
+    background-color: $second;
+    z-index: 99;
   }
   &__btn {
     height: 50px;
@@ -140,6 +134,21 @@ ul, ol {
     z-index: 200;
   }
 
+}
+.iframe {
+  &_responsive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+.iframeWrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
 }
 .btn {
   display: flex;
@@ -217,15 +226,13 @@ ul, ol {
   border-left: 100px solid red;
   border-bottom: 50px solid transparent;
 }
-
-.bg{
-  &__symbol{
-    svg path{
+.bg {
+  &__symbol {
+    svg path {
       fill: #121719;
     }
   }
 }
-
 /******* atomic classes *******/
 ._fixed {
   overflow: hidden;
