@@ -56,8 +56,7 @@ body, html {
   height: 100%;
 }
 body {
-  background: $bg-main;
-  color: $base;
+  color: $second;
   font-size: $font-size-base;
   font-weight: 400;
   line-height: normal;
@@ -89,7 +88,6 @@ ul, ol {
   padding: 0 50px;
 }
 .main {
-  background-color: $bg-white;
   text-align: center;
   padding: 0 90px;
   position: relative;
@@ -140,48 +138,20 @@ ul, ol {
     right: 10px;
     z-index: 200;
   }
-  &__watch {
-    position: absolute;
-    top: 12%;
-    right: 20%;
-    font-family: $font-family-base;
-    font-size: 1rem;
-    margin: 0 auto;
-    z-index: 119;
-  }
-  &__watchTitle {
-    color: $second;
-    text-shadow: 0 2px 5px black;
-    text-transform: uppercase;
-  }
-  &__btnWatch {
-    margin: 0 auto 15px;
-    height: 50px;
-    width: 50px;
-  }
+
 }
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   padding: 5px;
+  color: $second;
+  &_default {
+    background: linear-gradient(90deg, #3a26a9 0%, #3c49e1 47.62%, #01e6f0 101.58%);
+  }
   &:hover {
     cursor: pointer;
-    opacity: .8;
-    .btn__animatedCircle {
-      transition: transform .5s;
-      transform: scale(.7);
-      opacity: .5;
-    }
-  }
-  &_big {
-    transform: scale(1.5);
-  }
-  &_watch{
-    top: -25px;
-    right: -25px;
   }
   &__inner {
     display: flex;
@@ -193,18 +163,18 @@ ul, ol {
     background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid rgba(255, 255, 255, 1);
   }
-  &__animatedCircle {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 1);
-    transition: opacity .5s, transform .5s;
-    transform: scale(.3);
-    opacity: 0;
-  }
+  /*  &__animatedCircle {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 1);
+      transition: opacity .5s, transform .5s;
+      transform: scale(.3);
+      opacity: 0;
+    }*/
 }
 .iconClose {
   position: relative;
@@ -238,6 +208,13 @@ ul, ol {
       transform: rotate(90deg);
     }
   }
+}
+.watchIcon {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-left: 100px solid red;
+  border-bottom: 50px solid transparent;
 }
 /******* atomic classes *******/
 ._fixed {
