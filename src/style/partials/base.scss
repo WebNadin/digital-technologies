@@ -153,12 +153,18 @@ ul, ol {
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 110px;
 }
 .main {
-  text-align: center;
-  padding: 0 90px;
   position: relative;
+  background-color: #181818;
+  height: 100%;
+  &__bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+  }
 }
 .modal {
   width: 100vw;
@@ -313,6 +319,15 @@ ul, ol {
   &__symbol {
     svg path {
       fill: #121719;
+    }
+  }
+  &__img {
+    overflow: hidden;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
