@@ -104,6 +104,9 @@ ul, ol {
   &__lang {
     width: 20px;
     height: 20px;
+    padding: 3px;
+    box-sizing: content-box;
+    z-index: 2;
     img {
       display: block;
       width: 100%;
@@ -130,6 +133,7 @@ ul, ol {
     flex-direction: column;
     justify-content: center;
     padding: 0 110px;
+    z-index: 5;
   }
 }
 .welcome {
@@ -241,14 +245,14 @@ ul, ol {
     position: relative;
     background-color: transparent;
     border: 1px solid rgba(124, 124, 124, 0.3);
-    transition: opacity .5s, transform .5s;
+    transition: opacity .3s, transform .3s;
     &:hover {
       color: $base;
       z-index: 2;
       .animatedBorder {
         background-color: $second;
         opacity: 1;
-        transition: all .7s;
+        transition: all .3s;
         height: 100%;
         width: 100%;
         z-index: 1;
@@ -300,10 +304,8 @@ ul, ol {
   left: 0;
   top: 0;
   border-radius: 50%;
-  border: 1px solid rgba(124, 124, 124, 0.5);
-  transition: opacity .5s, transform .5s;
-  transform: scale(1.3);
-  opacity: 1;
+  border: 1px solid rgba(124, 124, 124, 1);
+  transition: opacity .3s, transform .3s;
 }
 .animatedCircleWrapper {
   position: relative;
@@ -341,14 +343,34 @@ ul, ol {
   transform: translateX(2px);
 }
 .bg {
+  display: flex;
+  align-items: center;
   &__symbol {
-    svg path {
-      fill: #121719;
+    width: 476px;
+    height: 476px;
+    position: relative;
+    transform: translateX(-110px);
+    svg {
+      position: relative;
+      height: 100%;
+      z-index: 1;
+      opacity: .9;
+      path {
+        fill: #121719;
+      }
     }
+  }
+  &__circle {
+    position: absolute;
+    left: 5%;
+    top: 5%;
   }
   &__img {
     overflow: hidden;
     height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
     img {
       display: block;
       width: 100%;
@@ -357,6 +379,14 @@ ul, ol {
       object-position: right center;
     }
   }
+}
+.circle {
+  background-color: #536671;
+  opacity: .2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 90px 60px rgba(83, 102, 113, 1);
 }
 /******* atomic classes *******/
 ._fixed {
