@@ -135,7 +135,20 @@ ul, ol {
     padding: 0 110px;
     z-index: 5;
   }
+  &__parallax{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 40px;
+    overflow: hidden;
+  }
 }
+
 .welcome {
   width: 38%;
   &__title {
@@ -387,6 +400,39 @@ ul, ol {
   height: 100%;
   border-radius: 50%;
   box-shadow: 0 0 90px 60px rgba(83, 102, 113, 1);
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 156px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.parallax{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  &__img{
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+  &__card{
+    width: 346px;
+    bottom: 20%;
+  }
+  &__hand{
+    width: 700px;
+    bottom: 0;
+  }
+  &__coin{
+    width: 320px;
+    bottom: 0;
+    right: -60px;
+  }
 }
 /******* atomic classes *******/
 ._fixed {
