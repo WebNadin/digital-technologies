@@ -12,42 +12,6 @@ h1 {
   line-height: 120%;
   margin: 0 0 0.5em 0;
 }
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  line-height: 120%;
-  margin: 0.5em 0;
-}
-h2 {
-  font-size: 1.75em;
-  font-weight: bold;
-  line-height: 120%;
-  margin: 0.5em 0;
-}
-h3 {
-  font-size: 1.5em;
-  font-weight: bold;
-  line-height: 120%;
-  margin: 0.6em 0;
-}
-h4 {
-  font-size: 1.25em;
-  font-weight: bold;
-  line-height: 120%;
-  margin: 0.8em 0;
-}
-h5 {
-  font-size: 1.1em;
-  font-weight: bold;
-  line-height: 120%;
-  margin: 1em 0;
-}
-h6 {
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 120%;
-  margin: 1em 0;
-}
 html, body {
   height: 100%;
 }
@@ -56,11 +20,13 @@ body, html {
   height: 100%;
 }
 body {
-  background: $bg-main;
-  color: $base;
+  color: $second;
   font-size: $font-size-base;
   font-weight: 400;
   line-height: normal;
+  font-family: $font-family-base;
+  display: flex;
+  flex-direction: column;
 }
 button, a, input, textarea {
   outline: none;
@@ -71,27 +37,136 @@ p {
 ul, ol {
   margin: 1em 0;
 }
-.header, .footer {
-  padding: 25px 0;
-  text-align: center;
-  font-weight: bold;
+.header {
+  background-color: #030303;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $base-light;
+  &__logo {
+    height: 36px;
+  }
 }
-.header, footer {
-  background-color: #d1dde2;
+.logo {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &__text {
+    color: $second;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-left: 10px;
+    transform: translateY(-4px);
+    text-transform: lowercase;
+  }
 }
-.nn-container {
-  display: block;
-  min-width: 320px;
-  max-width: 1920px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 50px;
+.nav {
+  display: flex;
+  align-items: center;
+  &__item {
+    margin-left: 25px;
+    &:hover {
+      cursor: pointer;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  &__link {
+    font-weight: 600;
+    opacity: .7;
+    transition: opacity .3s;
+    position: relative;
+    &.active, &:hover {
+      transition: opacity .3s;
+      opacity: 1;
+    }
+    &:hover {
+      &:after {
+        width: 100%;
+        opacity: .5;
+      }
+    }
+    &:after {
+      content: '';
+      height: 1px;
+      background-color: $second;
+      width: 0;
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      transition: all .5s;
+    }
+  }
+  &__lang {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    box-sizing: content-box;
+    z-index: 2;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
 }
 .main {
-  background-color: $bg-white;
-  text-align: center;
-  padding: 0 90px;
   position: relative;
+  background-color: #181818;
+  height: 100%;
+  &__bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+  }
+  &__welcome {
+    min-width: 320px;
+    max-width: 1920px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 110px;
+    z-index: 5;
+  }
+  &__parallax{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 40px;
+    overflow: hidden;
+  }
+}
+
+.welcome {
+  width: 38%;
+  &__title {
+    font-family: $font-family-medium;
+    font-size: 45px;
+    font-weight: 500;
+    line-height: 55px;
+    margin-bottom: 40px;
+  }
+  &__text {
+    line-height: 26px;
+    opacity: .5;
+    width: 75%;
+    margin-bottom: 45px;
+  }
+  &__btn {
+    max-width: 210px;
+  }
 }
 .modal {
   width: 100vw;
@@ -100,9 +175,8 @@ ul, ol {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to bottom, rgba(239, 1, 124, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
   opacity: 0;
-  z-index: 100;
+  z-index: 0;
   &_small {
     display: flex;
     justify-content: center;
@@ -120,89 +194,140 @@ ul, ol {
       background-color: rgba(0, 0, 0, .5);
     }
   }
-  &__footballer {
-    width: 60%;
-    position: relative;
-    z-index: 200;
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  &__inner {
+    padding: 20px 30px;
+    width: 50%;
+    background-color: $second;
+    z-index: 99;
   }
-  &__btn {
-    height: 50px;
-    width: 50px;
+  &__title {
+    color: $base;
+  }
+  &__text {
+    color: $base;
+  }
+
+}
+.iframe {
+  &_responsive {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
-  &__watch {
-    position: absolute;
-    top: 12%;
-    right: 20%;
-    font-family: $font-family-base;
-    font-size: 1rem;
-    margin: 0 auto;
-    z-index: 119;
-  }
-  &__watchTitle {
-    color: $second;
-    text-shadow: 0 2px 5px black;
-    text-transform: uppercase;
-  }
-  &__btnWatch {
-    margin: 0 auto 15px;
-    height: 50px;
-    width: 50px;
-  }
+}
+.iframeWrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
 }
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  padding: 5px;
+  border-radius: 100px;
+  padding: 5px 25px;
+  color: $second;
+  height: 36px;
   &:hover {
     cursor: pointer;
-    opacity: .8;
-    .btn__animatedCircle {
-      transition: transform .5s;
-      transform: scale(.7);
-      opacity: .5;
+  }
+  &_default {
+    background: linear-gradient(90deg, #3a26a9 0%, #3c49e1 47.62%, #01e6f0 101.58%);
+    height: 43px;
+    justify-content: flex-start;
+    padding-left: 5px;
+    padding-right: 5px;
+    transition: all .3s;
+    &:hover {
+      box-shadow: inset 0px 0px 16px 0px rgba(0, 0, 0, 0.75);
+      .animatedCircle {
+        transform: scale(2);
+        transition: all .3s;
+        opacity: 0;
+      }
+      .btn__text {
+        opacity: .8;
+      }
     }
   }
-  &_big {
-    transform: scale(1.5);
+
+  &_transparent {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid rgba(124, 124, 124, 0.3);
+    transition: opacity .3s, transform .3s;
+    &:hover {
+      color: $base;
+      z-index: 2;
+      .animatedBorder {
+        background-color: $second;
+        opacity: 1;
+        transition: all .3s;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+    &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 1);
+    }
   }
-  &_watch{
-    top: -25px;
-    right: -25px;
+  &__text {
+    z-index: 3;
   }
-  &__inner {
+  &__icon {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(255, 255, 255, 1);
+    margin-right: 20px;
+    .animatedCircle {
+      transform: scale(1);
+    }
   }
-  &__animatedCircle {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 1);
-    transition: opacity .5s, transform .5s;
-    transform: scale(.3);
-    opacity: 0;
+}
+.animatedBorder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-radius: 100px;
+  width: 100%;
+  border: 1px solid $second;
+  opacity: 0;
+  transition: all .7s;
+}
+.animatedCircle {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(124, 124, 124, 1);
+  transition: opacity .3s, transform .3s;
+}
+.animatedCircleWrapper {
+  position: relative;
+  &:hover {
+    .animatedCircle {
+      transform: scale(2);
+      transition: all .3s;
+      opacity: 0;
+    }
   }
 }
 .iconClose {
@@ -222,20 +347,91 @@ ul, ol {
     }
   }
 }
-.iconPlus {
-  position: relative;
-  width: 14px;
-  height: 14px;
-  &__item {
-    position: absolute;
-    background: #fff;
-    width: 14px;
-    height: 1px;
-    top: calc(50% - 1px);
-    left: 0;
-    &:first-child {
-      transform: rotate(90deg);
+.watchIcon {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-left: 10px solid $second;
+  border-bottom: 6px solid transparent;
+  transform: translateX(2px);
+}
+.bg {
+  display: flex;
+  align-items: center;
+  &__symbol {
+    width: 476px;
+    height: 476px;
+    position: relative;
+    transform: translateX(-110px);
+    svg {
+      position: relative;
+      height: 100%;
+      z-index: 1;
+      opacity: .9;
+      path {
+        fill: #121719;
+      }
     }
+  }
+  &__circle {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+  }
+  &__img {
+    overflow: hidden;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+    }
+  }
+}
+.circle {
+  background-color: #536671;
+  opacity: .2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 90px 60px rgba(83, 102, 113, 1);
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 156px;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.parallax{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  &__img{
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+  &__card{
+    width: 346px;
+    bottom: 20%;
+  }
+  &__hand{
+    width: 700px;
+    bottom: 0;
+  }
+  &__coin{
+    width: 320px;
+    bottom: 0;
+    right: -60px;
   }
 }
 /******* atomic classes *******/

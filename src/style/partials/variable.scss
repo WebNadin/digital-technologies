@@ -1,12 +1,8 @@
-$base: black;
-$base-light:rgba($base, .8);
+$base: #0C0C0C;
+$base-light: #272727;
 $second: #ffffff;
-$accent: #d0ad68;
 
-$font-size-base: 18px;
+$font-size-base: 14px;
 
-$font-family-base: Conv_DINNextLTPro-Heavy, 'Arial', sans-serif;
-$font-family-medium: Conv_DINNextLTPro-Medium, 'Arial', sans-serif;
-$bg-main:rgba($base, .1);
-$bg-white:white;
-$bg-code: rgba(12, 182, 245, 0.65);
+$font-family-base: 'Noto Sans', 'Arial', sans-serif;
+$font-family-medium: 'Oswald', 'Arial', sans-serif;
