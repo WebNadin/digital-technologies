@@ -135,7 +135,7 @@ ul, ol {
     padding: 0 110px;
     z-index: 5;
   }
-  &__parallax{
+  &__parallax {
     position: absolute;
     top: 0;
     right: 0;
@@ -148,7 +148,6 @@ ul, ol {
     overflow: hidden;
   }
 }
-
 .welcome {
   width: 38%;
   &__title {
@@ -202,11 +201,26 @@ ul, ol {
   }
   &__title {
     color: $base;
+    font-family: $font-family-medium;
+    font-size: 35px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 auto 20px;
+  }
+  &__video {
+    margin-bottom: 20px;
   }
   &__text {
-    color: $base;
+    color: #a1a0ae;
+    font-weight: 500;
+    text-align: center;
+    line-height: 26px;
   }
-
+  &__closeBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
 }
 .iframe {
   &_responsive {
@@ -242,7 +256,7 @@ ul, ol {
     padding-right: 5px;
     transition: all .3s;
     &:hover {
-      box-shadow: inset 0px 0px 16px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0 0 16px 0 rgba(0, 0, 0, 0.75);
       .animatedCircle {
         transform: scale(2);
         transition: all .3s;
@@ -333,18 +347,27 @@ ul, ol {
 .iconClose {
   position: relative;
   transform: rotate(45deg);
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
+  opacity: .3;
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
   &__item {
     position: absolute;
-    background: #fff;
-    width: 14px;
+    background: $base-light;
+    width: 12px;
     height: 1px;
     top: calc(50% - 1px);
     left: 0;
     &:first-child {
       transform: rotate(90deg);
     }
+  }
+  .animatedCircle {
+    transform: scale(0);
+    transition: all .3s;
   }
 }
 .watchIcon {
@@ -401,34 +424,32 @@ ul, ol {
   border-radius: 50%;
   box-shadow: 0 0 90px 60px rgba(83, 102, 113, 1);
 }
-
-.footer{
+.footer {
   position: fixed;
   bottom: 0;
   left: 0;
   height: 156px;
   width: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
 }
-
-.parallax{
+.parallax {
   position: relative;
   width: 100%;
   height: 100%;
-  &__img{
+  &__img {
     display: block;
     position: absolute;
     right: 0;
   }
-  &__card{
+  &__card {
     width: 346px;
     bottom: 20%;
   }
-  &__hand{
+  &__hand {
     width: 700px;
     bottom: 0;
   }
-  &__coin{
+  &__coin {
     width: 320px;
     bottom: 0;
     right: -60px;
@@ -437,5 +458,8 @@ ul, ol {
 /******* atomic classes *******/
 ._fixed {
   overflow: hidden;
+}
+._relative {
+  position: relative;
 }
 /******* end_atomic classes *******/
