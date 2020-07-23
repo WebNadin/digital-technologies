@@ -18,9 +18,9 @@ class Parallax {
   }
 
   animationYoyo() {
-    gsap.to(".js-parallaxCard", {y: 20, x: 20, duration: 2, repeat: 10, yoyoEase: true});
-    gsap.to(".js-parallaxCoin", {y: -10, x: -10, delay: .3, duration: 1, repeat: 10, yoyoEase: true});
-    gsap.to(".js-parallaxHand", {y: 10, x: 30, delay: .1, duration: 3, repeat: 10, yoyoEase: true});
+    gsap.to(".js-parallaxCard", {y: 20, x: 20, duration: 2, repeat: 100, yoyoEase: true});
+    gsap.to(".js-parallaxCoin", {y: -10, x: -10, delay: .3, duration: 1, repeat: 100, yoyoEase: true});
+    gsap.to(".js-parallaxHand", {y: 10, x: 30, delay: .1, duration: 3, repeat: 100, yoyoEase: true});
   }
 
   mouseMoveElement(e, target, movement) {
