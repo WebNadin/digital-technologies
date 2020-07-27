@@ -80,6 +80,7 @@ ul, ol {
     opacity: .7;
     transition: opacity .3s;
     position: relative;
+    color: $second;
     &.active, &:hover {
       transition: opacity .3s;
       opacity: 1;
