@@ -40,39 +40,54 @@ ul, ol {
 .header {
   background-color: #030303;
   padding: 20px 30px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 36px;
+  grid-template-areas: "logo" "nav";
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid $base-light;
+  gap: 25px;
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "logo nav";
+  }
   &__logo {
-    height: 36px;
+    grid-area: logo;
+  }
+  &__nav {
+    grid-area: nav;
+    justify-self: end;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
   }
 }
 .logo {
   height: 36px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 31px 1fr;
   align-items: center;
   cursor: pointer;
+  gap: 10px;
   &__text {
     color: $second;
     font-size: 24px;
     font-weight: bold;
     line-height: 24px;
-    margin-left: 10px;
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     text-transform: lowercase;
   }
 }
 .nav {
-  display: flex;
+  display: grid;
   align-items: center;
+  grid-template-rows: 36px;
+  grid-template-columns: repeat(8, max-content);
+  gap: 25px;
   &__item {
-    margin-left: 25px;
     &:hover {
       cursor: pointer;
-    }
-    &:first-child {
-      margin-left: 0;
     }
   }
   &__link {
